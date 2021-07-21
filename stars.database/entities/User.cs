@@ -13,5 +13,6 @@ namespace stars.database.entities
         public string Password { get; set; }
         public int Stock { get; set; }
         public int Fleet { get; set; }
+        public int Bulding { get; set; }
     }
 }
