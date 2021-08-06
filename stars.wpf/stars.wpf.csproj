@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\stars.database\stars.database.csproj" />
+  </ItemGroup>
+
 </Project>

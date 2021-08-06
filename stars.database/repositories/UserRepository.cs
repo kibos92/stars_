@@ -13,5 +13,10 @@ namespace stars.database.repositories
         protected override DbSet<User> DbSet => _dbContext.Users;
 
         public UserRepository(AppDbContext dbContext) : base(dbContext) { }
+
+        public User GetByLoginAndPassword(string login, string password)
+        {
+            return DbSet.SingleOrDefault(user => user.Login == login && user.Password == password);
+        }
     }
 }
