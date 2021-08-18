@@ -8,8 +8,11 @@ using System.Runtime.CompilerServices;
 using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 using stars.database;
 using stars.database.entities;
+using stars.wpf.Commands;
 
 namespace stars.wpf.ViewModels
 {
@@ -17,24 +20,37 @@ namespace stars.wpf.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string LoginVm { set; get; }
+        public string PasswordVm { set; get; }
+
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public UserRepository UsersRepository = new UserRepository(new AppDbContext());
-        public void LoginUser(string username, string password)
+
+        public UserRepository UsersRepository = new(new AppDbContext());
+
+        public void CheckLogin(object obj)
         {
-            var checkUser = (UsersRepository.GetByLoginAndPassword(username, password));
+            User user = UsersRepository.GetByLoginAndPassword(LoginVm, PasswordVm);
 
-            if (checkUser != null)
+            if (user != null)
             {
-
+                MessageBox.Show("zalogowano");
             }
 
             else
             {
-                UsersRepository.Add(new User(){Login = username, Password = password});
+                MessageBox.Show("nie zalogowano");
+                UsersRepository.Add(new User() {Login = LoginVm, Password = PasswordVm});
             }
+        }
+
+        public ICommand LoginCommand { get; set; }
+
+        public MainViewModel()
+        {
+            LoginCommand = new RelayCommand(CheckLogin);
         }
     }
 }
