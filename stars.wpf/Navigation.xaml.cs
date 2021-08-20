@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using stars.wpf.ViewModels;
 
 namespace stars.wpf
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Navigation.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Navigation : UserControl
     {
-        public MainWindow()
+        public Navigation()
         {
             InitializeComponent();
         }

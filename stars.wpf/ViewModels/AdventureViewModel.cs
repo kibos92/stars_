@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace stars.wpf.ViewModels
 {
-    public class AdventureViewModel
+    public class AdventureViewModel : ViewModelBase
     {
 
     }

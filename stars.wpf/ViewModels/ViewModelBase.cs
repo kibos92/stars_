@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace stars.wpf.ViewModels
 {
-    public class BuildingsViewModel : ViewModelBase
+    public class ViewModelBase
     {
 
     }

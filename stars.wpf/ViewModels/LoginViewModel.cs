@@ -13,16 +13,16 @@ using System.Windows.Input;
 using stars.database;
 using stars.database.entities;
 using stars.wpf.Commands;
+using stars.wpf.Controls;
+using stars.wpf.Views;
 
 namespace stars.wpf.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class LoginViewModel : ViewModelBase, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
         public string LoginVm { set; get; }
         public string PasswordVm { set; get; }
-
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -37,6 +37,9 @@ namespace stars.wpf.ViewModels
             if (user != null)
             {
                 MessageBox.Show("zalogowano");
+                MainWindow main = new MainWindow();
+                App.Current.MainWindow = main;
+                main.Show();
             }
 
             else
@@ -45,10 +48,8 @@ namespace stars.wpf.ViewModels
                 UsersRepository.Add(new User() {Login = LoginVm, Password = PasswordVm});
             }
         }
-
         public ICommand LoginCommand { get; set; }
-
-        public MainViewModel()
+        public LoginViewModel()
         {
             LoginCommand = new RelayCommand(CheckLogin);
         }

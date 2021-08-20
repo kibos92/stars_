@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace stars.wpf.ViewModels
 {
-    public class HomeViewModel : INotifyPropertyChanged
+    public class HomeViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+
     }
 }
