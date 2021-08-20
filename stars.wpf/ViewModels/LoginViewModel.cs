@@ -21,6 +21,7 @@ namespace stars.wpf.ViewModels
     public class LoginViewModel : ViewModelBase, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        public Action CloseAction { get; set; }
         public string LoginVm { set; get; }
         public string PasswordVm { set; get; }
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -38,14 +39,15 @@ namespace stars.wpf.ViewModels
             {
                 MessageBox.Show("zalogowano");
                 MainWindow main = new MainWindow();
-                App.Current.MainWindow = main;
+                //App.Current.MainWindow = main;
                 main.Show();
+                CloseAction();
             }
 
             else
             {
                 MessageBox.Show("nie zalogowano");
-                UsersRepository.Add(new User() {Login = LoginVm, Password = PasswordVm});
+                UsersRepository.Add(new User() { Login = LoginVm, Password = PasswordVm });
             }
         }
         public ICommand LoginCommand { get; set; }
