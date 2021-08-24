@@ -6,19 +6,19 @@
              xmlns:views="clr-namespace:stars.wpf.Views"
              StartupUri="Views/LoginView.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}" x:Key="HomeView">
+        <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
             <views:HomeView />
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewmodels:FleetViewModel}" x:Key="FleetView">
+        <DataTemplate DataType="{x:Type viewmodels:FleetViewModel}">
             <views:FleetView />
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewmodels:BuildingsViewModel}" x:Key="BuildingsView">
+        <DataTemplate DataType="{x:Type viewmodels:BuildingsViewModel}">
             <views:BuildingsView />
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewmodels:AdventureViewModel}" x:Key="AdventureView">
+        <DataTemplate DataType="{x:Type viewmodels:AdventureViewModel}">
             <views:AdventureView />
         </DataTemplate>
     </Application.Resources>
