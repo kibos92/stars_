@@ -41,6 +41,7 @@ namespace stars.wpf.ViewModels
                 MainWindow main = new MainWindow();
                 //App.Current.MainWindow = main;
                 main.Show();
+                main.DataContext = new MainWindowViewModel();
                 CloseAction();
             }
 
