@@ -15,9 +15,22 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBox Grid.Row="0" Text="Stars - Game"/>
+        <Grid Grid.Row="0" Background="{StaticResource BrushPrimary1}">
+            <TextBlock Padding="10"
+                       MaxWidth="1000"
+                       FontSize="28"
+                       Foreground="White"
+                       Text="Stars" />
+            </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1"
+              Background="{StaticResource BrushPrimary2}"
+              RenderOptions.EdgeMode="Aliased">
+            <Grid MaxWidth="1000">
+                <Grid.Resources>
+                    <Style BasedOn="{StaticResource NavButton}" TargetType="RadioButton" />
+                </Grid.Resources>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
@@ -25,11 +38,11 @@
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
 
-            <RadioButton Grid.Column="0" Content="Home" Command="{Binding UpdateCurrentViewModelCommand }" CommandParameter="{x:Static controls:ViewType.Home}"/>
-            <RadioButton Grid.Column="1" Content="Buildings" Command="{Binding UpdateCurrentViewModelCommand }" CommandParameter="{x:Static controls:ViewType.Buildings}"/>
-            <RadioButton Grid.Column="2" Content="Fleet" Command="{Binding UpdateCurrentViewModelCommand }" CommandParameter="{x:Static controls:ViewType.Fleet}"/>
-            <RadioButton Grid.Column="3" Content="Adventure" Command="{Binding UpdateCurrentViewModelCommand }" CommandParameter="{x:Static controls:ViewType.Adventure}"/>
+            <RadioButton Grid.Column="0" Content="Start" Command="{Binding UpdateCurrentViewModelCommand }" CommandParameter="{x:Static controls:ViewType.Home}"/>
+            <RadioButton Grid.Column="1" Content="Budynki" Command="{Binding UpdateCurrentViewModelCommand }" CommandParameter="{x:Static controls:ViewType.Buildings}"/>
+            <RadioButton Grid.Column="2" Content="Flota" Command="{Binding UpdateCurrentViewModelCommand }" CommandParameter="{x:Static controls:ViewType.Fleet}"/>
+            <RadioButton Grid.Column="3" Content="Przygoda" Command="{Binding UpdateCurrentViewModelCommand }" CommandParameter="{x:Static controls:ViewType.Adventure}"/>
         </Grid>
-            
+            </Grid>
     </Grid>
 </UserControl>

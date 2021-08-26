@@ -37,9 +37,8 @@ namespace stars.wpf.ViewModels
 
             if (user != null)
             {
-                MessageBox.Show("zalogowano");
+                MessageBox.Show("Zalogowano!");
                 MainWindow main = new MainWindow();
-                //App.Current.MainWindow = main;
                 main.Show();
                 main.DataContext = new MainWindowViewModel();
                 CloseAction();
@@ -47,14 +46,30 @@ namespace stars.wpf.ViewModels
 
             else
             {
-                MessageBox.Show("nie zalogowano");
+                MessageBox.Show("Zły login albo hasło!");
+            }
+        }
+
+        public void CreateLogin(object ojb)
+        {
+            User user = UsersRepository.FindUserByLogin(LoginVm);
+
+            if (user == null)
+            {
                 UsersRepository.Add(new User() { Login = LoginVm, Password = PasswordVm });
+                MessageBox.Show("Rejestracja udana!");
+            }
+            else
+            {
+                MessageBox.Show("Konto już istnieje!");
             }
         }
         public ICommand LoginCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
         public LoginViewModel()
         {
             LoginCommand = new RelayCommand(CheckLogin);
+            RegisterCommand = new RelayCommand(CreateLogin);
         }
     }
 }

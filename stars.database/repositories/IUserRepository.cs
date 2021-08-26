@@ -11,5 +11,7 @@ namespace stars.database.repositories
     public interface IUserRepository : IBaseRepository<User, int>
     {
         public User GetByLoginAndPassword(string login, string password);
+
+        public User FindUserByLogin(string login);
     }
 }

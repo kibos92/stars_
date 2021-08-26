@@ -10,5 +10,10 @@ namespace stars.wpf.ViewModels
     public class MainWindowViewModel
     {
         public INavigator Navigator { get; set; } = new Navigator();
+
+        public MainWindowViewModel()
+        {
+            Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Home);
+        }
     }
 }

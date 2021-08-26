@@ -6,7 +6,14 @@
              xmlns:views="clr-namespace:stars.wpf.Views"
              StartupUri="Views/LoginView.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Common.xaml" />
+                <ResourceDictionary Source="/Styles/NavBar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
             <views:HomeView />
         </DataTemplate>
 
@@ -21,5 +28,7 @@
         <DataTemplate DataType="{x:Type viewmodels:AdventureViewModel}">
             <views:AdventureView />
         </DataTemplate>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
