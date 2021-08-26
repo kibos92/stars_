@@ -4,9 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:stars.wpf.Views"
+             xmlns:viewmodels="clr-namespace:stars.wpf.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Home"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="{StaticResource BrushPrimary1}">
+            <TextBlock Padding="10"
+                       MaxWidth="1000"
+                       FontSize="28"
+                       Foreground="White"
+                       Text="{Binding CurrentLogin}"/>
+        </Grid>
     </Grid>
 </UserControl>

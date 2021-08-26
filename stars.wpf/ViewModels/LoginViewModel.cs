@@ -28,15 +28,14 @@ namespace stars.wpf.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+        
         public UserRepository UsersRepository = new(new AppDbContext());
-
         public void CheckLogin(object obj)
         {
-            User user = UsersRepository.GetByLoginAndPassword(LoginVm, PasswordVm);
-
-            if (user != null)
-            {
+           User user = UsersRepository.GetByLoginAndPassword(LoginVm, PasswordVm);
+           if (user != null)
+           {
+                LoginView.currentUser = user;
                 MessageBox.Show("Zalogowano!");
                 MainWindow main = new MainWindow();
                 main.Show();
@@ -44,13 +43,13 @@ namespace stars.wpf.ViewModels
                 CloseAction();
             }
 
-            else
+           else
             {
                 MessageBox.Show("Zły login albo hasło!");
             }
         }
 
-        public void CreateLogin(object ojb)
+        public void CreateLogin(object obj)
         {
             User user = UsersRepository.FindUserByLogin(LoginVm);
 

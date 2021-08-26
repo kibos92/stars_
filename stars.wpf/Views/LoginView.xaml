@@ -20,9 +20,9 @@
         </Border.Effect>
         <Grid Grid.IsSharedSizeScope="True">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0"
@@ -38,15 +38,15 @@
 
             <Grid Grid.Row="2" Margin="0 20">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0" Margin="0 10">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" SharedSizeGroup="Label" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Label" />
                         <ColumnDefinition Width="300" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Login: "></TextBlock>
@@ -55,7 +55,7 @@
 
                 <Grid Grid.Row="1" Margin="0 10">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" SharedSizeGroup="Label" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Label" />
                         <ColumnDefinition Width="300" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Hasło: "></TextBlock>

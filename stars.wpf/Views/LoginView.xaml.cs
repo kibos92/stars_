@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using stars.database.entities;
 using stars.wpf.ViewModels;
 
 namespace stars.wpf.Views
@@ -21,6 +22,7 @@ namespace stars.wpf.Views
     /// </summary>
     public partial class LoginView : Window
     {
+        public static User currentUser;
         public LoginView()
         {
             InitializeComponent();
