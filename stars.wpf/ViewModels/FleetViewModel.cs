@@ -14,16 +14,24 @@ namespace stars.wpf.ViewModels
 {
     public class FleetViewModel : ViewModelBase
     {
+        public string CurrentLogin { set; get; }
+        public int CurrentStock { set; get; }
+        public int CurrentBuilding { set; get; }
         public int CurrentFleet { set; get; }
+
         public UserRepository UsersRepository = new(new AppDbContext());
         public ICommand BuyShipCommand { set; get; }
 
         public FleetViewModel()
         {
+            CurrentLogin = LoginView.currentUser.Login;
+            CurrentStock = LoginView.currentUser.Stock;
+            CurrentBuilding = LoginView.currentUser.Building;
             CurrentFleet = LoginView.currentUser.Fleet;
-            BuyShipCommand = new RelayCommand(FleetUp);
-        }
 
+            BuyShipCommand = new RelayCommand(FleetUp);
+
+        }
         public void FleetUp(object obj)
         {
             CurrentFleet++;
@@ -31,6 +39,5 @@ namespace stars.wpf.ViewModels
             updateUser.Fleet = CurrentFleet;
             UsersRepository.Update(updateUser);
         }
-
     }
 }

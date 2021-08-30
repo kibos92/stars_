@@ -15,8 +15,10 @@ namespace stars.wpf.ViewModels
 {
     public class BuildingsViewModel : ViewModelBase
     {
+        public string CurrentLogin { set; get; }
         public int CurrentStock { set; get; }
         public int CurrentBuilding { set; get; }
+        public int CurrentFleet { set; get; }
         public int CurrentReq { set; get; }
 
         public UserRepository UsersRepository = new(new AppDbContext());
@@ -24,8 +26,12 @@ namespace stars.wpf.ViewModels
 
         public BuildingsViewModel()
         {
+            CurrentLogin = LoginView.currentUser.Login;
             CurrentStock = LoginView.currentUser.Stock;
             CurrentBuilding = LoginView.currentUser.Building;
+            CurrentFleet = LoginView.currentUser.Fleet;
+
+
             CurrentReq = LoginView.currentUser.ReqBuild;
             BuildCommand = new RelayCommand(BuildingUp);
         }

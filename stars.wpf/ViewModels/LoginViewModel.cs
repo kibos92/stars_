@@ -24,6 +24,7 @@ namespace stars.wpf.ViewModels
         public Action CloseAction { get; set; }
         public string LoginVm { set; get; }
         public string PasswordVm { set; get; }
+
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -41,7 +42,7 @@ namespace stars.wpf.ViewModels
                 main.Show();
                 main.DataContext = new MainWindowViewModel();
                 CloseAction();
-            }
+           }
 
            else
             {
