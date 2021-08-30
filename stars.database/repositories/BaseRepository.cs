@@ -37,6 +37,24 @@ namespace stars.database.repositories
 
             return false;
         }
+
+        public bool Update(EntityType entity, bool saveChanges = true)
+        {
+            try
+            {
+                DbSet.Update(entity);
+                if (saveChanges)
+                {
+                    return _dbContext.SaveChanges() > 0;
+                }
+            }
+            catch (Exception exception)
+            {
+                return false;
+            }
+
+            return false;
+        }
         public bool Delete(EntityType entity, bool saveChanges = true)
         {
             try
