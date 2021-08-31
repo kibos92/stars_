@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using stars.database;
 using stars.database.entities;
@@ -18,6 +19,7 @@ namespace stars.wpf.ViewModels
         public int CurrentStock { set; get; }
         public int CurrentBuilding { set; get; }
         public int CurrentFleet { set; get; }
+        public int CurrentReq { set; get; } = 15;
 
         public UserRepository UsersRepository = new(new AppDbContext());
         public ICommand BuyShipCommand { set; get; }
@@ -34,10 +36,18 @@ namespace stars.wpf.ViewModels
         }
         public void FleetUp(object obj)
         {
-            CurrentFleet++;
-            User updateUser = LoginView.currentUser;
-            updateUser.Fleet = CurrentFleet;
-            UsersRepository.Update(updateUser);
+            if (CurrentStock >= CurrentReq)
+            {
+                CurrentFleet++;
+                User updateUser = LoginView.currentUser;
+                updateUser.Fleet = CurrentFleet;
+                UsersRepository.Update(updateUser);
+            }
+
+            else
+            {
+                MessageBox.Show("Za mało surowców!");
+            }
         }
     }
 }

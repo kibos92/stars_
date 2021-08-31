@@ -7,7 +7,12 @@
              xmlns:viewmodels="clr-namespace:stars.wpf.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-
+    <Window.Background>
+        <ImageBrush
+            ImageSource="/Resources/galaxy.jpg"
+            Opacity="0.5"
+            Stretch="UniformToFill" />
+    </Window.Background>
     <Border Margin="25" Padding="50"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"

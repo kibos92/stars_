@@ -7,7 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\asteroids.jpg" />
+    <None Remove="Resources\galaxy.jpg" />
+    <None Remove="Resources\galaxy_adv.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\stars.database\stars.database.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\asteroids.jpg" />
+    <Resource Include="Resources\galaxy.jpg" />
+    <Resource Include="Resources\galaxy_adv.jpg" />
   </ItemGroup>
 
 </Project>

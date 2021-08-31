@@ -7,13 +7,45 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="DarkSlateGray">
-        <Button Grid.Row="2" Background="{StaticResource BrushPrimary1}">
-            <Button Padding="10"
-                    MaxWidth="1000"
-                    FontSize="28"
-                    Foreground="White"
-                    Command="{Binding BuyShipCommand}"
-                    Content="Dodaj flotę"/>
-        </Button>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Stocznia" FontSize="30" Foreground="White" HorizontalAlignment="Center" Padding="10"/>
+
+        <Grid Grid.Row="1" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Ilość statków kosmicznych: " Foreground="White" Padding="10" FontSize="25"/>
+            <TextBlock Grid.Column="1" Text="{Binding CurrentFleet}" Foreground="White" Padding="10" FontSize="25"/>
+        </Grid>
+
+        <Button Grid.Row="2" Command="{Binding BuyShipCommand}" Content="Kup statek kosmiczny" HorizontalAlignment="Center" Padding="10" FontSize="25"/>
+
+        <Grid Grid.Row="3" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Potrzebna ilość stali: " Foreground="White" Padding="10"/>
+            <TextBlock Grid.Column="1" Text="{Binding CurrentReq}" Foreground="White" Padding="10"/>
+        </Grid>
+
+        <Grid Grid.Row="4" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Aktualny stan stali: " Foreground="White" Padding="10"/>
+            <TextBlock Grid.Column="1" Text="{Binding CurrentStock}" Foreground="White" Padding="10"/>
+        </Grid>
+
     </Grid>
 </UserControl>
